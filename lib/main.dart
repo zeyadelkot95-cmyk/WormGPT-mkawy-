@@ -59,7 +59,13 @@ class _WormGptAppState extends State<WormGptApp> {
           body: jsonEncode({
             'model': model.text.trim(),
             'messages': [
-              {'role': 'system', 'content': 'You are WormGPT X, a helpful bilingual assistant. Follow safety boundaries.'},
+              {'role': 'system', 'content': 'You are WormGPT X, a professional expert technical assistant.
+Respond in Arabic or English according to the user's language.
+Be direct, precise, practical and step-by-step.
+Help with programming, Android, networking, cybersecurity defense,
+troubleshooting and general technical education.
+Never claim an action was completed unless it actually was.
+Explain limitations honestly and offer safe practical alternatives.'},
               ...messages.map((m) => {'role': m.fromUser ? 'user' : 'assistant', 'content': m.text}),
             ],
           }),
@@ -111,7 +117,7 @@ class _WormGptAppState extends State<WormGptApp> {
   Widget build(BuildContext context) {
     final dark = ThemeData(
       brightness: Brightness.dark,
-      colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF9B5CFF), brightness: Brightness.dark),
+      colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF00E676), brightness: Brightness.dark),
       scaffoldBackgroundColor: const Color(0xFF101014),
       useMaterial3: true,
     );
@@ -147,7 +153,7 @@ class _WormGptAppState extends State<WormGptApp> {
                     ? Center(child: Padding(
                         padding: const EdgeInsets.all(28),
                         child: Column(mainAxisSize: MainAxisSize.min, children: [
-                          const Icon(Icons.bolt, size: 54, color: Color(0xFFB58AFF)),
+                          const Icon(Icons.bolt, size: 54, color: Color(0xFF00E676)),
                           const SizedBox(height: 12),
                           Text(tr('مرحباً بك في WormGPT X', 'Welcome to WormGPT X'), style: Theme.of(context).textTheme.headlineSmall),
                           const SizedBox(height: 8),
@@ -166,7 +172,7 @@ class _WormGptAppState extends State<WormGptApp> {
                               margin: const EdgeInsets.symmetric(vertical: 5),
                               padding: const EdgeInsets.all(13),
                               decoration: BoxDecoration(
-                                color: m.fromUser ? const Color(0xFF56318A) : const Color(0xFF24242C),
+                                color: m.fromUser ? const Color(0xFF075E36) : const Color(0xFF10251B),
                                 borderRadius: BorderRadius.circular(16),
                               ),
                               child: SelectableText(m.text),
@@ -189,7 +195,7 @@ class _WormGptAppState extends State<WormGptApp> {
                         decoration: InputDecoration(
                           hintText: tr('اكتب رسالتك...', 'Message WormGPT X...'),
                           filled: true,
-                          fillColor: const Color(0xFF24242C),
+                          fillColor: const Color(0xFF10251B),
                           border: OutlineInputBorder(borderRadius: BorderRadius.circular(24), borderSide: BorderSide.none),
                         ),
                       ),
